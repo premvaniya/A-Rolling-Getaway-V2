@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://n5eeakso0ewv"]
+
+[ext_resource type="Script" path="res://scenes/levels/victory_screen.gd" id="1_ask43"]
+[ext_resource type="Texture2D" uid="uid://b42rfcsi1vijl" path="res://assets/on_screen_ui/Sprites/shaded-dark/shadedDark35.png" id="2_kbwpq"]
+[ext_resource type="Texture2D" uid="uid://chp46v7cwqwbd" path="res://assets/on_screen_ui/Sprites/shaded-dark/shadedDark45.png" id="3_o8j8u"]
+
+[node name="VictoryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ask43")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.698039)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level Cleared!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 150
+
+[node name="Exit" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("2_kbwpq")
+
+[node name="Next Level" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_o8j8u")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Next Level" to="." method="_on_next_button_pressed"]

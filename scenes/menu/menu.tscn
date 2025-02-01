@@ -1,0 +1,163 @@
+[gd_scene load_steps=19 format=3 uid="uid://bfrxj7g8eeova"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_210n1"]
+[ext_resource type="Script" path="res://scenes/menu/level_mode_btn.gd" id="2_3wv78"]
+[ext_resource type="Shader" path="res://scenes/menu/scroll.gdshader" id="2_54wpg"]
+[ext_resource type="Texture2D" uid="uid://c37da1nvebuqu" path="res://assets/gui_pack_White/white_musicOn.png" id="2_pgwva"]
+[ext_resource type="Script" path="res://scenes/menu/endless_btn.gd" id="3_i83t7"]
+[ext_resource type="Texture2D" uid="uid://hnesjiv5m3jd" path="res://assets/images/Space Background.png" id="3_k6sdr"]
+[ext_resource type="Script" path="res://scenes/menu/customization_btn.gd" id="4_tyo7c"]
+[ext_resource type="Shader" path="res://scenes/menu/planets.gdshader" id="4_wue6d"]
+[ext_resource type="Texture2D" uid="uid://jioig6to1ji" path="res://assets/images/Planets1.png" id="5_btte4"]
+[ext_resource type="Script" path="res://scenes/menu/high_score_btn.gd" id="5_pc8k4"]
+[ext_resource type="Script" path="res://scenes/menu/sound_button.gd" id="7_igc8i"]
+[ext_resource type="Texture2D" uid="uid://3r8ufg2en8u0" path="res://assets/gui_pack_White/white_musicOff.png" id="11_p0m3f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f87sn"]
+shader = ExtResource("2_54wpg")
+shader_parameter/speed = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jouyy"]
+shader = ExtResource("4_wue6d")
+shader_parameter/speed = 0.07
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kptj"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbki4"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go027"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yn6e4"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_210n1")
+
+[node name="MenuBg" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MenuBg"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_f87sn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k6sdr")
+stretch_mode = 6
+
+[node name="Planets" type="TextureRect" parent="MenuBg/TextureRect"]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jouyy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_btte4")
+stretch_mode = 6
+
+[node name="MainContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MainContainer"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 64.0
+offset_right = 911.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 65
+text = "A Rolling Getaway"
+horizontal_alignment = 1
+
+[node name="ButtonGrid" type="GridContainer" parent="MainContainer"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 336.0
+offset_right = 901.0
+offset_bottom = 492.0
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="LevelModeBtn" type="Button" parent="MainContainer/ButtonGrid"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_7kptj")
+text = "Level Mode"
+script = ExtResource("2_3wv78")
+
+[node name="EndlessBtn" type="Button" parent="MainContainer/ButtonGrid"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_kbki4")
+text = "Endless"
+script = ExtResource("3_i83t7")
+
+[node name="CustomizationBtn" type="Button" parent="MainContainer/ButtonGrid"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_go027")
+text = "Customizations"
+script = ExtResource("4_tyo7c")
+
+[node name="HighScoreBtn" type="Button" parent="MainContainer/ButtonGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_yn6e4")
+text = "High Score"
+script = ExtResource("5_pc8k4")
+
+[node name="ToggleSound" type="TextureButton" parent="MainContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 24.0
+offset_right = 1180.0
+offset_bottom = 124.0
+scale = Vector2(0.5, 0.5)
+toggle_mode = true
+texture_normal = ExtResource("2_pgwva")
+texture_pressed = ExtResource("11_p0m3f")
+script = ExtResource("7_igc8i")
+
+[connection signal="pressed" from="MainContainer/ButtonGrid/LevelModeBtn" to="." method="_on_level_mode_btn_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonGrid/EndlessBtn" to="." method="_on_endless_btn_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonGrid/CustomizationBtn" to="." method="_on_customization_btn_pressed"]
+[connection signal="pressed" from="MainContainer/ButtonGrid/HighScoreBtn" to="." method="_on_high_score_btn_pressed"]
+[connection signal="pressed" from="MainContainer/ToggleSound" to="." method="_on_toggle_sound_pressed"]
+[connection signal="pressed" from="MainContainer/ToggleSound" to="MainContainer/ToggleSound" method="_on_pressed"]
