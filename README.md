@@ -31,4 +31,35 @@ Welcome to **Rolling Gateway**, a two-part game built to challenge your reflexes
 
 ---
 
+---
+
+## 🎯 Key Highlights
+
+- 🎮 Smooth rolling mechanics with intuitive controls  
+- 🎨 Vibrant design using Swing UI components  
+- 🎵 Custom sound effects for immersive gameplay  
+- 📈 Scoring and progression with replayability
+
+---
+
+## 🔮 Future Features
+
+- 🌐 Multiplayer mode with score sharing  
+- 🌈 Visual effects upgrade using JavaFX  
+- 🧠 AI-controlled gateways for smarter challenges  
+- 📊 Stats dashboard for player analytics
+
+---
+
+## 🙌 Credits
+
+Created with 💻 & 🎨 by PREM  
+Inspired by endless runners and timing puzzles
+
+---
+
+## 📣 Tagline
+
+> “Roll through the chaos. Unlock the gateway.”  
+
 
