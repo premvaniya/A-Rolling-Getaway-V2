@@ -1,7 +1,7 @@
 extends Node
 
 var level_status = {
-	1: {"unlocked": true, "completed": false},  # First level starts unlocke
+	1: {"unlocked": true, "completed": false},  # First level starts unlockedd
 	2: {"unlocked": false, "completed": false},
 	3: {"unlocked": false, "completed": false},
 }
